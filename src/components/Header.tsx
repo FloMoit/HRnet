@@ -7,7 +7,7 @@ export default function Header() {
       <NavLink
         to="/"
         className="flex flex-row items-center justify-center gap-3">
-        <h1 className="text-xl font-bold">HRNet</h1>
+        <h1 className="text-5xl font-bold">HRNet</h1>
       </NavLink>
     </header>
   );

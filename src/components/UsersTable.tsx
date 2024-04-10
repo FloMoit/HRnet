@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSortUp, faSortDown } from "@fortawesome/free-solid-svg-icons";
 import "../css/table.css";
 
-const ColumnsEmployee = [
+const ColumnsUsers = [
   {
     Header: "Id",
     accessor: "id",
@@ -64,8 +64,8 @@ const ColumnsEmployee = [
   },
 ];
 
-export default function EmployeeTable() {
-  const columns = useMemo(() => ColumnsEmployee, []);
+export default function UsersTable() {
+  const columns = useMemo(() => ColumnsUsers, []);
   const data = useSelector((state) => state.data).users;
 
   const {

@@ -1,21 +1,23 @@
 import React from "react";
-import { HRnetForm } from "../components/myForm.js";
+import { MyForm } from "../components/MyForm.js";
 import { NavLink } from "react-router-dom";
-import EmployeeTable from "../components/EmployeeTable.jsx";
+import UsersTable from "../components/UsersTable.tsx";
 
 export default function Home() {
   return (
     <>
       <div className="mx-16 my-6 ">
-        <div className="flex gap-6 mx-0 my-6 text-xl font-semibold">
-          <h2>Create Employee</h2>
+        <div className="flex justify-center gap-6 mx-0 my-6 text-xl font-semibold">
+          <h2>Create User</h2>
           <NavLink
-            to="/EmployeeTable"
+            to="/UsersTable"
             className="underline text-slate-200 underline-offset-4">
-            View Current Employees
+            View Current Users
           </NavLink>
         </div>
-        <HRnetForm />
+        <div className="flex justify-center">
+          <MyForm />
+        </div>
       </div>
     </>
   );

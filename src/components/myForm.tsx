@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AddUsers } from "../redux/dataReducer";
 import states from "../data/States.json";
 
-export const HRnetForm = () => {
+export const MyForm = () => {
   const [openModal, setOpenModal] = useState(false);
 
   const dispatch = useDispatch();
@@ -35,10 +35,10 @@ export const HRnetForm = () => {
     return `${month}/${day}/${year}`;
   };
 
-  const OnSubmit = (dataOneEmployee) => {
-    dataOneEmployee.birthdate = changeFormat(dataOneEmployee.birthdate);
-    dataOneEmployee.startdate = changeFormat(dataOneEmployee.startdate);
-    const arr = Object.assign(dataOneEmployee, { id: data.users.length + 1 });
+  const OnSubmit = (dataOneUser) => {
+    dataOneUser.birthdate = changeFormat(dataOneUser.birthdate);
+    dataOneUser.startdate = changeFormat(dataOneUser.startdate);
+    const arr = Object.assign(dataOneUser, { id: data.users.length + 1 });
     dispatch(AddUsers(arr));
     setOpenModal(true);
     reset();
@@ -49,7 +49,7 @@ export const HRnetForm = () => {
       <form
         onSubmit={handleSubmit(OnSubmit)}
         noValidate
-        className="flex flex-col gap-3 text-lg">
+        className="flex flex-col gap-3 text-lg max-w-[500px]">
         <div className="grid grid-cols-2 gap-2">
           <label htmlFor="firstname">First Name</label>
           <div className="flex flex-col">
@@ -63,7 +63,7 @@ export const HRnetForm = () => {
               })}
               type="text"
               id="firstname"
-              className="border-2 rounded border-slate-200 text-slate-800"
+              className="p-1 border-2 rounded border-slate-200 text-slate-800"
             />
             <span className="text-rose-600">{errors.firstname?.message}</span>
           </div>
@@ -80,7 +80,7 @@ export const HRnetForm = () => {
               })}
               type="text"
               id="lastname"
-              className="border-2 rounded border-slate-200 text-slate-800"
+              className="p-1 border-2 rounded border-slate-200 text-slate-800"
             />
             <span className="text-rose-600">{errors.lastname?.message}</span>
           </div>
@@ -94,7 +94,7 @@ export const HRnetForm = () => {
               })}
               id="birthdate"
               type="date"
-              className="border-2 rounded border-slate-200 text-slate-800"
+              className="p-1 border-2 rounded border-slate-200 text-slate-800"
             />
             <span className="text-rose-600">{errors.birthdate?.message}</span>
           </div>
@@ -108,7 +108,7 @@ export const HRnetForm = () => {
               })}
               id="startdate"
               type="date"
-              className="border-2 rounded border-slate-200 text-slate-800"
+              className="p-1 border-2 rounded border-slate-200 text-slate-800"
             />
             <span className="text-rose-600">{errors.startdate?.message}</span>
           </div>
@@ -128,7 +128,7 @@ export const HRnetForm = () => {
                 })}
                 id="street"
                 type="text"
-                className="border-2 rounded border-slate-200 text-slate-800"
+                className="p-1 border-2 rounded border-slate-200 text-slate-800"
               />
               <span className="text-rose-600">{errors.street?.message}</span>
             </div>
@@ -144,7 +144,7 @@ export const HRnetForm = () => {
                 })}
                 id="city"
                 type="text"
-                className="border-2 rounded border-slate-200 text-slate-800"
+                className="p-1 border-2 rounded border-slate-200 text-slate-800"
               />
               <span className="text-rose-600">{errors.city?.message}</span>
             </div>
@@ -153,7 +153,7 @@ export const HRnetForm = () => {
             <select
               {...register("state")}
               id="state"
-              className="border-2 rounded border-slate-200 text-slate-800">
+              className="p-1 border-2 rounded border-slate-200 text-slate-800">
               {states.map((state) => (
                 <option key={state.abbreviation}>{state.name} </option>
               ))}
@@ -171,7 +171,7 @@ export const HRnetForm = () => {
                 })}
                 id="zipcode"
                 type="number"
-                className="border-2 rounded border-slate-200 text-slate-800"
+                className="p-1 border-2 rounded border-slate-200 text-slate-800"
               />
               <span className="text-rose-600">{errors.zipcode?.message}</span>
             </div>
@@ -184,7 +184,7 @@ export const HRnetForm = () => {
           <select
             {...register("department")}
             id="department"
-            className="border-2 rounded border-slate-200 text-slate-800">
+            className="p-1 border-2 rounded border-slate-200 text-slate-800">
             <option>Sales</option>
             <option>Marketing</option>
             <option>Engineering</option>
@@ -192,7 +192,7 @@ export const HRnetForm = () => {
             <option>Legal</option>
           </select>
         </div>
-        <div className="flex justify-center mt-4">
+        <div className="flex justify-end mt-4">
           <button
             type="submit"
             className="w-32 p-2 border-2 rounded bg-slate-200 border-slate-200 text-slate-800">

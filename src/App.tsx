@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import { Provider } from "react-redux";
 import { store } from "./redux/store.js";
 import Header from "./components/Header.jsx";
-import EmployeeTable from "./components/EmployeeTable.jsx";
+import UsersTable from "./components/UsersTable.js";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/EmployeeTable" element={<EmployeeTable />} />
+          <Route path="/UsersTable" element={<UsersTable />} />
         </Routes>
       </Router>
     </Provider>
