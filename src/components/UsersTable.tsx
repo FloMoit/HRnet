@@ -1,4 +1,3 @@
-import React, { useMemo } from "react";
 import {
   useTable,
   useSortBy,
@@ -6,6 +5,7 @@ import {
   useGlobalFilter,
 } from "react-table";
 import GlobalFilter from "./GlobalFilter";
+import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSortUp, faSortDown } from "@fortawesome/free-solid-svg-icons";

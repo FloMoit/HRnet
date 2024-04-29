@@ -1,15 +1,16 @@
-import React from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { AddUsers } from "../redux/dataReducer";
+import { AddUsers, Purge } from "../redux/dataReducer";
 import states from "../data/States.json";
+import ModalePlugin from "@fmoitrier/modale-plugin";
+import { NavLink } from "react-router-dom";
 
 export const MyForm = () => {
   const [openModal, setOpenModal] = useState(false);
 
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.data);
+  const data = useSelector((state) => state.data).users;
 
   const form = useForm();
   const { register, control, handleSubmit, formState, reset } = form;
@@ -38,7 +39,7 @@ export const MyForm = () => {
   const OnSubmit = (dataOneUser) => {
     dataOneUser.birthdate = changeFormat(dataOneUser.birthdate);
     dataOneUser.startdate = changeFormat(dataOneUser.startdate);
-    const arr = Object.assign(dataOneUser, { id: data.users.length + 1 });
+    const arr = Object.assign(dataOneUser, { id: data.length + 1 });
     dispatch(AddUsers(arr));
     setOpenModal(true);
     reset();
@@ -50,7 +51,7 @@ export const MyForm = () => {
         onSubmit={handleSubmit(OnSubmit)}
         noValidate
         className="flex flex-col gap-3 text-lg max-w-[500px]">
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid items-center grid-cols-2 gap-2">
           <label htmlFor="firstname">First Name</label>
           <div className="flex flex-col">
             <input
@@ -115,7 +116,7 @@ export const MyForm = () => {
         </div>
         <fieldset className="border-2 rounded border-slate-200">
           <legend className="p-2 ml-2">Address</legend>
-          <div className="grid grid-cols-2 gap-2 p-2">
+          <div className="grid items-center grid-cols-2 gap-2 p-2">
             <label htmlFor="street">Street</label>
             <div className="flex flex-col">
               <input
@@ -177,8 +178,8 @@ export const MyForm = () => {
             </div>
           </div>
         </fieldset>
-        <div>
-          <label htmlFor="department" className="mr-6">
+        <div className="flex items-center justify-between">
+          <label htmlFor="department" className="">
             Department
           </label>
           <select
@@ -200,6 +201,15 @@ export const MyForm = () => {
           </button>
         </div>
       </form>
+      {openModal && (
+        <ModalePlugin
+          onClose={setOpenModal}
+          textModal="User successfully created !">
+          <NavLink className="LinkOfModal" to={"UsersTable"}>
+            Click here to view the user list
+          </NavLink>
+        </ModalePlugin>
+      )}
     </>
   );
 };
