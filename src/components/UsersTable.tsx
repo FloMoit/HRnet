@@ -63,8 +63,7 @@ const ColumnsUsers = [
     accessor: "zipcode",
   },
 ];
-
-export default function UsersTable() {
+export const UsersTable = () => {
   const columns = useMemo(() => ColumnsUsers, []);
   const data = useSelector((state) => state.data).users;
 
@@ -173,4 +172,4 @@ export default function UsersTable() {
       </div>
     </div>
   );
-}
+};

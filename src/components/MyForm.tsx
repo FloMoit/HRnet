@@ -17,15 +17,24 @@ export const MyForm = () => {
   const { errors } = formState;
 
   const CalculateAge = (dob) => {
-    return true;
+    const BirthDate = new Date(dob);
+    const DateDiffMs = Date.now() - BirthDate.getTime();
+    const ageYear = new Date(DateDiffMs);
+    return Math.abs(ageYear.getUTCFullYear() - 1970);
   };
 
   const validateBirthDate = (value) => {
-    return true;
+    const age = CalculateAge(value);
+    return age >= 15 || "Age must be at least 15";
   };
 
   const validateStartDate = (value) => {
-    return true;
+    const today = Date.now();
+    const start = new Date(value).getTime();
+    const birth = new Date(birthdate.value).getTime() + 473040000000; //on ajoute 15 ans
+    if (!(birth && start <= today && start > birth)) {
+      return "User must be at least 15 years old and can't be in the future";
+    }
   };
 
   const changeFormat = (value) => {
@@ -203,7 +212,7 @@ export const MyForm = () => {
       </form>
       {openModal && (
         <ModalePlugin
-          onClose={setOpenModal}
+          onClose={setOpenModal(false)}
           textModal="User successfully created !">
           <NavLink className="LinkOfModal" to={"UsersTable"}>
             Click here to view the user list
