@@ -1,7 +1,5 @@
-import React from "react";
-import { MyForm } from "../components/MyForm.tsx";
+import { MyForm } from "../components/MyForm";
 import { NavLink } from "react-router-dom";
-import UsersTable from "../components/UsersTable.tsx";
 
 export default function Home() {
   return (
