@@ -18,7 +18,7 @@
     "@reduxjs/toolkit": "^2.2.3",
     "@tanstack/react-table": "^8.15.3",
     "compression": "^1.7.4",
-    "@fmoitrier/modale-plugin": "^0.0.1",
+    "@fmoitrier/modale-plugin": "^0.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.51.2",
