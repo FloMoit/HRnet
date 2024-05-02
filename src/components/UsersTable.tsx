@@ -87,7 +87,7 @@ export const UsersTable = () => {
   const { globalFilter } = state;
 
   return (
-    <div className="mt-4">
+    <div className="w-full mt-4">
       <div className="flex items-center justify-between gap-5 p-4 text-lg">
         <div>
           <label htmlFor="size">Show </label>
