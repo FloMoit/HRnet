@@ -1,5 +1,5 @@
 import React from "react";
-import { MyForm } from "../components/MyForm.js";
+import { MyForm } from "../components/MyForm.tsx";
 import { NavLink } from "react-router-dom";
 import UsersTable from "../components/UsersTable.tsx";
 
