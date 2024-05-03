@@ -212,7 +212,7 @@ export const MyForm = () => {
       </form>
       {openModal && (
         <ModalePlugin
-          onClose={setOpenModal(false)}
+          onClose={() => setOpenModal(false)}
           textModal="User successfully created !">
           <NavLink className="LinkOfModal" to={"UsersTable"}>
             Click here to view the user list
